@@ -6,10 +6,7 @@ const app = express();
 // Middleware
 app.use(
     cors({
-        origin: process.env.CORS_ORIGIN || 'https://alfredtaskfrontend.vercel.app/',
-        credentials: true,
-        methods: 'GET,POST,PUT,DELETE',
-        allowedHeaders: 'Content-Type, Authorization'
+        origin: process.env.CORS_ORIGIN,
     })
 );
 app.use(express.json());
