@@ -12,18 +12,16 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const [dueFlashcards, allFlashcards] = await Promise.all([
-          api.getDueFlashcards(),
-          api.getAllFlashcards()
-        ]);
-        
+
+        const dueFlashcards = await api.getDueFlashcards();
+        const allFlashcards = await api.getAllFlashcards();
+
         setDueCount(dueFlashcards.length);
         setTotalCount(allFlashcards.length);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch flashcards');
         setLoading(false);
-        // console.error(err);
       }
     };
     

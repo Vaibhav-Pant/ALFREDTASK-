@@ -11,12 +11,13 @@ const AllFlashcards = () => {
       try {
         setLoading(true);
         const cards = await api.getAllFlashcards();
+        // console.log("Cards: ", cards);
         setFlashcards(cards);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch flashcards');
         setLoading(false);
-        console.error(err);
+        // console.error(err);
       }
     };
     
@@ -30,7 +31,7 @@ const AllFlashcards = () => {
         setFlashcards(flashcards.filter(card => card._id !== id));
       } catch (err) {
         setError('Failed to delete flashcard');
-        console.error(err);
+        // console.error(err);
       }
     }
   };

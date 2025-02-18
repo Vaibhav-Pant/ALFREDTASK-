@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.BACKEND_URL;
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const api = {   
-  // Get all flashcards
+    // Get all flashcards
     getAllFlashcards: async () => {
         const response = await axios.get(`${API_URL}/flashcards`);
         return response.data;
@@ -27,7 +27,7 @@ const api = {
         return response.data;
     },
   
-//   // Get flashcards due for review
+    // Get flashcards due for review
     getDueFlashcards: async () => {
         const response = await axios.get(`${API_URL}/flashcards/due`);
         return response.data;

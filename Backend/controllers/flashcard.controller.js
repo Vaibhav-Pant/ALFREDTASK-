@@ -3,13 +3,13 @@ import Flashcard from "../model/flashcard.model.js"
 const getAllFlashcards = async (req, res) => {
     try {
         const flashcards = await Flashcard.find();
-        res
+        return res
         .status(200)
         .json(
             flashcards
         );
     } catch (err) {
-        res
+        return res
         .status(500)
         .json(
             { 
@@ -107,16 +107,16 @@ const deleteFlashCard = async (req, res) => {
 const flashCardDue = async (req, res) => {
     try {
         const dueFlashcards = await Flashcard.find({
-          nextReviewDate: { $lte: new Date() }
+            nextReviewDate: { $lte: new Date() }
         });
         return res
         .status(200)
         .json(dueFlashcards);
-      } catch (err) {
+    } catch (err) {
         return res
         .status(500)
         .json({ message: "Error getting FlashCard due." });
-      }
+    }
 }
 
 export {
